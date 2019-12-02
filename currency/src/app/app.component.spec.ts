@@ -31,5 +31,6 @@ describe('AppComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('.content span').textContent).toContain('currency app is running!');
+    console.log('currency app is running!')
   });
 });

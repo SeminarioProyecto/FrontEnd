@@ -10,21 +10,21 @@ import { Component } from '@angular/core';
         width="24"
         alt="avatar"
       />
-      <span class="align-middle">Zongbin</span>
+      <span class="align-middle">Eduardo Calix</span>
     </a>
 
     <mat-menu #menu="matMenu">
       <a routerLink="/profile/overview" mat-menu-item>
         <mat-icon>account_circle</mat-icon>
-        <span>Profile</span>
+        <span>Perfil</span>
       </a>
       <a routerLink="/profile/settings" mat-menu-item>
         <mat-icon>settings</mat-icon>
-        <span>Settings</span>
+        <span>Opciones</span>
       </a>
       <a routerLink="/auth/login" mat-menu-item>
         <mat-icon>exit_to_app</mat-icon>
-        <span>Logout</span>
+        <span>Cerrar Sesión</span>
       </a>
     </mat-menu>
   `,

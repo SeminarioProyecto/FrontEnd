@@ -4,7 +4,7 @@ import { Subscription } from 'rxjs';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { MatSidenav, MatSidenavContent } from '@angular/material/sidenav';
-import { SettingsService, AppSettings } from '@core';
+import { SettingsService, AppSettings } from '../../core';
 
 const MOBILE_MEDIAQUERY = 'screen and (max-width: 599px)';
 const TABLET_MEDIAQUERY = 'screen and (min-width: 600px) and (max-width: 959px)';

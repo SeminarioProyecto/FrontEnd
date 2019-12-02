@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { EasyColumn } from '@shared';
+import { EasyColumn } from '../../../shared';
 
 @Injectable()
 export class TableBasicService {

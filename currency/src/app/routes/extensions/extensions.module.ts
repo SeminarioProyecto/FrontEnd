@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { SharedModule } from '@shared';
+import { SharedModule } from '../../shared';
 import { ExtensionsRoutingModule } from './extensions-routing.module';
 import { ExtensionsDialogComponent } from './dialog/dialog.component';
 

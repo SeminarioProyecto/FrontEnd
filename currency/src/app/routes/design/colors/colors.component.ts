@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { KeyValue } from '@angular/common';
 
 import { DesignColorsService } from './colors.service';
-import { MAT_COLORS } from '@shared';
+import { MAT_COLORS } from '../../../shared';
 
 @Component({
   selector: 'app-design-colors',
