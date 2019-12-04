@@ -21,7 +21,7 @@ import { Component } from '@angular/core';
           <mat-icon class="icon-18">account_circle</mat-icon>
         </a>
         <a routerLink="/profile/settings" mat-icon-button>
-          <mat-icon class="icon-18">Configuración</mat-icon>
+          <mat-icon class="icon-18">settings</mat-icon>
         </a>
         <a routerLink="/auth/login" mat-icon-button>
           <mat-icon class="icon-18">exit_to_app</mat-icon>

@@ -4,8 +4,8 @@ import { Component } from '@angular/core';
   selector: 'app-notification',
   template: `
     <button mat-icon-button [matMenuTriggerFor]="menu">
-      <mat-icon>Notificación</mat-icon>
-      <span class="badge bg-red-500">5</span>
+      <mat-icon>notifications</mat-icon>
+      <span class="badge bg-red-500">1</span>
     </button>
 
     <mat-menu #menu="matMenu">

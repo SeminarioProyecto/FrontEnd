@@ -19,7 +19,7 @@ import { Component } from '@angular/core';
         <span>Perfil</span>
       </a>
       <a routerLink="/profile/settings" mat-menu-item>
-        <mat-icon>Configuración</mat-icon>
+        <mat-icon>settings</mat-icon>
         <span>Opciones</span>
       </a>
       <a routerLink="/auth/login" mat-menu-item>

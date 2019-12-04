@@ -9,46 +9,46 @@ export interface PeriodicElement {
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
-  { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
-  { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
-  { position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
-  { position: 5, name: 'Boron', weight: 10.811, symbol: 'B' },
-  { position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C' },
-  { position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },
-  { position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
-  { position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
-  { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
+  { position: 1, name: 'Dolar', weight: 1.0000, symbol: 'USD' },
+  { position: 2, name: 'Euro', weight: 4.0026, symbol: 'EUR' },
+  { position: 3, name: 'Lempira', weight: 6.941, symbol: 'HNL' },
+  { position: 4, name: 'Peso', weight: 9.0122, symbol: 'MXN' },
+  { position: 5, name: 'Yen', weight: 10.811, symbol: 'JPY' },
+  { position: 6, name: 'Colón', weight: 12.0107, symbol: 'SVC' },
+  { position: 7, name: 'Quetzal', weight: 14.0067, symbol: 'QTR' },
+  { position: 8, name: 'Colón', weight: 15.9994, symbol: 'CRC' },
+  { position: 9, name: 'Balboa', weight: 18.9984, symbol: 'PAB' },
+  { position: 10, name: 'Córdoba', weight: 20.1797, symbol: 'NIO' },
 ];
 
 const MESSAGES = [
   {
-    img: 'assets/images/avatars/avatar-1.jpg',
-    subject: 'Hydrogen',
+    img: 'assets/images/divisa/honduras.png',
+    subject: 'Honduras',
     content: `Cras sit amet nibh libero, in gravida nulla.
      Nulla vel metus scelerisque ante sollicitudin commodo.`,
   },
   {
-    img: 'assets/images/avatars/avatar-2.jpg',
-    subject: 'Helium',
+    img: 'assets/images/divisa/usa.png',
+    subject: 'Estados Unidos',
     content: `Cras sit amet nibh libero, in gravida nulla.
      Nulla vel metus scelerisque ante sollicitudin commodo.`,
   },
   {
-    img: 'assets/images/avatars/avatar-3.jpg',
-    subject: 'Lithium',
+    img: 'assets/images/divisa/euro.jpg',
+    subject: 'Europa',
     content: `Cras sit amet nibh libero, in gravida nulla.
      Nulla vel metus scelerisque ante sollicitudin commodo.`,
   },
   {
-    img: 'assets/images/avatars/avatar-4.jpg',
-    subject: 'Beryllium',
+    img: 'assets/images/divisa/china.jpg',
+    subject: 'China',
     content: `Cras sit amet nibh libero, in gravida nulla.
      Nulla vel metus scelerisque ante sollicitudin commodo.`,
   },
   {
-    img: 'assets/images/avatars/avatar-6.jpg',
-    subject: 'Boron',
+    img: 'assets/images/divisa/mexico.png',
+    subject: 'Mexico',
     content: `Cras sit amet nibh libero, in gravida nulla.
      Nulla vel metus scelerisque ante sollicitudin commodo.`,
   },
@@ -71,11 +71,11 @@ export class DashboardService {
       },
       series: [
         {
-          name: 'UV',
+          name: 'Euro',
           data: [31, 40, 28, 51, 42, 109, 100],
         },
         {
-          name: 'Download',
+          name: 'Dollar',
           data: [11, 32, 45, 32, 34, 52, 41],
         },
       ],
@@ -108,11 +108,11 @@ export class DashboardService {
       },
       series: [
         {
-          name: 'Weekly Revenue',
+          name: 'Crecimiento por semana',
           data: [20, 100, 40, 30, 50, 80, 33],
         },
       ],
-      labels: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+      labels: ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sábado'],
       plotOptions: {
         radar: {
           size: 140,
