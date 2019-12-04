@@ -9,11 +9,11 @@ import { ThemeModule } from './theme/theme.module';
 import { RoutesModule } from './routes/routes.module';
 //import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-//importar formularios creados
+/* //importar formularios creados
 //import {CurrencyComponent} from './components/currency/currency.component';
-import { from } from 'rxjs';
-import { DefaultInterceptor } from './core/interceptors/default.interceptor';
-import { StartupService } from './core/services/startup.service';
+//import { from } from 'rxjs'; */
+import { DefaultInterceptor } from './core';
+import { StartupService } from './core';
 export function StartupServiceFactory(startupService: StartupService) {
   return () => startupService.load();
 }
@@ -23,11 +23,9 @@ import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent
-//    CurrencyComponent
   ],
   imports: [
     BrowserModule,
-    //AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
     CoreModule,
