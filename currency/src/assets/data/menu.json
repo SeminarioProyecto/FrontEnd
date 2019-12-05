@@ -6,28 +6,38 @@
       "type": "link",
       "icon": "dashboard",
       "badge": {
-        "color": "red-500",
-        "value": "5"
+        "color": "red-500"
       }
     },
     {
       "state": "profile",
-      "name": "Profile",
+      "name": "Perfil",
       "type": "sub",
       "icon": "person",
       "children": [
         {
           "state": "overview",
-          "name": "Overview",
+          "name": "Generalidades",
           "type": "link"
         },
         {
           "state": "settings",
-          "name": "Settings",
+          "name": "Configuración",
           "type": "link"
         }
       ]
-    }
+    },{
+      "state": "forms",
+      "name": "Cambio",
+      "type": "sub",
+      "icon": "money",
+      "children": [
+        {
+          "state": "dynamic",
+          "name": "Cambiar moneda",
+          "type": "link"
+        }]
+      }
     
   ]
 }
