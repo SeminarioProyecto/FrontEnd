@@ -45,7 +45,7 @@ export class MenuService {
     return this.getMenuLevel(stateArr)[stateArr.length - 1];
   }
 
-  // TODO:
+  // Controla como está estructurado el menu principal
   getMenuLevel(stateArr: string[]): string[] {
     const tmpArr = [];
     this.menu.map(item => {

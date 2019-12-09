@@ -28,6 +28,6 @@ export class BreadcrumbComponent implements OnInit {
   genBreadcrumb() {
     const states = this.router.url.slice(1).split('/');
     this.nav = this.menuService.getMenuLevel(states);
-    this.nav.unshift('home');
+    this.nav.unshift('inicio');
   }
 }

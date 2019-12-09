@@ -13,7 +13,7 @@ import { Component } from '@angular/core';
         <mat-list-item *ngFor="let message of messages">
           <a matLine href="#">{{ message }}</a>
           <button mat-icon-button>
-            <mat-icon>Información</mat-icon>
+            <mat-icon>information</mat-icon>
           </button>
         </mat-list-item>
       </mat-nav-list>

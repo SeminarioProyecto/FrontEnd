@@ -58,7 +58,7 @@ export class TableAdvancedService {
       index: 'license.name',
     },
     {
-      title: 'Home Page',
+      title: 'Pagina de inicio',
       index: 'homepage',
       type: 'link',
     },

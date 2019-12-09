@@ -3,7 +3,7 @@
      cdkDrag
      (cdkDragStarted)="handleDragStart($event)">
   <button mat-fab (click)="openPanel($event)">
-    <mat-icon aria-label="Example icon-button with a settings icon">Opciones</mat-icon>
+    <mat-icon aria-label="Example icon-button with a settings icon">settings</mat-icon>
   </button>
 </div>
 
@@ -27,7 +27,7 @@
                       (change)="sendOptions()"
                       [disabled]="options.headerPos === 'above' || options.navPos === 'top'">visible
     </mat-slide-toggle>
-    <h4 class="f-w-400">posición</h4>
+    <h4 class="f-w-400">Posición</h4>
     <mat-radio-group [(ngModel)]="options.headerPos" (change)="sendOptions()">
       <mat-radio-button class="m-r-8"
                         [value]="'above'"
@@ -42,7 +42,7 @@
   <div class="m-l-8">
     <mat-slide-toggle [(ngModel)]="options.showUserPanel" (change)="sendOptions()">Mostrar panel usuario
     </mat-slide-toggle>
-    <h4 class="f-w-400">posición</h4>
+    <h4 class="f-w-400">Posición</h4>
     <mat-radio-group [(ngModel)]="options.navPos"
                      (change)="options.sidenavOpened = options.navPos === 'side' ? true : false; sendOptions()">
       <mat-radio-button class="m-r-8" [value]="'side'">Lado</mat-radio-button>

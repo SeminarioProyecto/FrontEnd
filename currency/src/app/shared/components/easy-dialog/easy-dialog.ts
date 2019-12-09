@@ -58,7 +58,7 @@ export class EasyDialog {
       buttons: [
         {
           type: '',
-          text: 'Close',
+          text: 'Cerrar',
           onClick: () => {
             onClose();
           },

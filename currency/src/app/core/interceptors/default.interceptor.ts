@@ -10,7 +10,7 @@ import {
 import { Observable, of } from 'rxjs';
 import { mergeMap, catchError } from 'rxjs/operators';
 
-/** Pass untouched request through to the next request handler. */
+/** Pase la solicitud intacta al siguiente manejador de solicitudes. */
 @Injectable()
 export class DefaultInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {

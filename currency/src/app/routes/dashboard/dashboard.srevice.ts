@@ -7,7 +7,7 @@ export interface PeriodicElement {
   weight: number;
   symbol: string;
 }
-
+//para controlar como funciona el dashboard de la pagina principal
 const ELEMENT_DATA: PeriodicElement[] = [
   { position: 1, name: 'Dolar', weight: 1.0000, symbol: 'USD' },
   { position: 2, name: 'Euro', weight: 4.0026, symbol: 'EUR' },

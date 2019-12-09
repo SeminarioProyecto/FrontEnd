@@ -2,7 +2,7 @@
   "menu": [
     {
       "state": "dashboard",
-      "name": "Dashboard",
+      "name": "Tableros",
       "type": "link",
       "icon": "dashboard",
       "badge": {
