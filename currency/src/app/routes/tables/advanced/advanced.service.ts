@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { EasyColumn, serialize } from '@shared';
+import { EasyColumn, serialize } from '../../../shared';
 
 const TAG = {
   true: { text: 'Yes', color: 'red-100' },
@@ -58,7 +58,7 @@ export class TableAdvancedService {
       index: 'license.name',
     },
     {
-      title: 'Home Page',
+      title: 'Pagina de inicio',
       index: 'homepage',
       type: 'link',
     },

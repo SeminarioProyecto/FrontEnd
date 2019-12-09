@@ -4,7 +4,7 @@ import { Subscription } from 'rxjs';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { MatSidenav, MatSidenavContent } from '@angular/material/sidenav';
-import { SettingsService, AppSettings } from '@core';
+import { SettingsService, AppSettings } from '../../core';
 
 const MOBILE_MEDIAQUERY = 'screen and (max-width: 599px)';
 const TABLET_MEDIAQUERY = 'screen and (min-width: 600px) and (max-width: 959px)';
@@ -45,7 +45,7 @@ export class AdminLayoutComponent implements OnInit, OnDestroy {
     );
   }
 
-  // Demo purposes only
+  // Solo propósitos de demostración
   @HostBinding('class.theme-dark') get themeDark() {
     return this.options.theme === 'dark';
   }
@@ -56,13 +56,13 @@ export class AdminLayoutComponent implements OnInit, OnDestroy {
     private overlay: OverlayContainer,
     private settings: SettingsService
   ) {
-    // Set dir attr on body
+    // Establecer dir attr en el cuerpo
     document.body.dir = this.options.dir;
 
     this.layoutChanges = this.breakpointObserver
       .observe([MOBILE_MEDIAQUERY, TABLET_MEDIAQUERY, MONITOR_MEDIAQUERY])
       .subscribe(state => {
-        // SidenavOpened must be reset true when layout changes
+        // SidenavOpened debe restablecerse como verdadero cuando cambia el diseño
         this.options.sidenavOpened = true;
 
         this.isMobileScreen = state.breakpoints[MOBILE_MEDIAQUERY];
@@ -70,7 +70,7 @@ export class AdminLayoutComponent implements OnInit, OnDestroy {
         this.contentWidthFix = state.breakpoints[MONITOR_MEDIAQUERY];
       });
 
-    // TODO: Scroll top to container
+    // TODO: Desplazarse hacia arriba al contenedor
     this.router.events.subscribe(evt => {
       if (evt instanceof NavigationEnd) {
         this.content.scrollTo({ top: 0 });
@@ -92,7 +92,7 @@ export class AdminLayoutComponent implements OnInit, OnDestroy {
   }
 
   resetCollapsedState(timer = 400) {
-    // TODO: Trigger when transition end
+    // TODO: Se dispara cuando finaliza la transición
     setTimeout(() => {
       this.settings.setNavState('collapsed', this.options.sidenavCollapsed);
     }, timer);
@@ -110,7 +110,7 @@ export class AdminLayoutComponent implements OnInit, OnDestroy {
     this.resetCollapsedState();
   }
 
-  // Demo purposes only
+  // Solo propósitos de demostración
   receiveOptions(options: AppSettings): void {
     this.options = options;
     this.setTheme(options);

@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
-import { SettingsService } from '@core';
+import { SettingsService } from '../../../core';
 import { CdkDragStart } from '@angular/cdk/drag-drop';
 
 @Component({

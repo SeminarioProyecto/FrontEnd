@@ -5,8 +5,8 @@ import { Component, OnInit } from '@angular/core';
   template: `
     <error-code
       code="403"
-      [title]="'Permission denied!'"
-      [message]="'You do not have permission to access the requested data.'"
+      [title]="'Permiso denegado!'"
+      [message]="'No tienes permiso para acceder a esta pagina.'"
     ></error-code>
   `,
 })

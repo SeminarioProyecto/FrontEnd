@@ -10,21 +10,21 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class FormsDynamicComponent implements OnInit {
   form = new FormGroup({});
-  model = { email: 'email@gmail.com' };
+  model = { Convercion: '1 USD = 0.709801 EUR' };
   fields: FormlyFieldConfig[] = [
     {
       key: 'text',
       type: 'input',
       templateOptions: {
-        label: 'Text',
-        placeholder: 'Type here to see the other field become enabled...',
+        label: 'Cambio',
+        placeholder: 'Ingrese la cantidad que desea convertir',
       },
     },
-    {
+   /*  {
       key: 'text2',
-      type: 'input',
+      type: 'select',
       templateOptions: {
-        label: 'Hey!',
+        label: 'Elija moneda de cambio',
         placeholder: 'This one is disabled if there is no text in the other input',
       },
       expressionProperties: {
@@ -39,9 +39,22 @@ export class FormsDynamicComponent implements OnInit {
         placeholder: 'Enter email',
         required: true,
       },
-    },
+    }, */
   ];
-
+//aquí van los valores de la api
+  selectedCarId = 3;
+  cars = [
+    { id: 1, name: 'USD ' },
+    { id: 2, name: 'EUR' },
+    { id: 3, name: 'HNL' },
+    { id: 4, name: 'MXN' },
+    { id: 5, name: 'JPY' },
+    { id: 6, name: 'SVC' },
+    { id: 7, name: 'QTR' },
+    { id: 8, name: 'CRC' },
+    { id: 9, name: 'PAB' },
+    { id: 10, name: 'NIO' },
+  ];
   constructor(private toastr: ToastrService) {}
 
   ngOnInit() {}

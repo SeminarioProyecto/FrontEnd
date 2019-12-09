@@ -5,7 +5,7 @@ import { PageEvent } from '@angular/material';
 import { TableBasicService } from './basic.service';
 import { TableDataService } from '../data.service';
 import { TableBasicEditComponent } from './edit/edit.component';
-import { EasyDialog } from '@shared';
+import { EasyDialog } from '../../../shared';
 
 @Component({
   selector: 'app-table-basic',

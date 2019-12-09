@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { EasyDialog } from '@shared';
+import { EasyDialog } from '../../../shared';
 
 @Component({
   selector: 'app-extensions-dialog',

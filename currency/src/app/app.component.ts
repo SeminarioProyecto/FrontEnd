@@ -1,12 +1,16 @@
-import { Component } from '@angular/core';
-//import font from '../assets/plugins/fontawesome-free/css/all.min.css';
-
+import { Component,OnInit, AfterViewInit } from '@angular/core';
+import { PreloaderService } from './core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css','../assets/plugins/fontawesome-free/css/all.min.css'] 
+  template: '<router-outlet></router-outlet>'
 })
-export class AppComponent {
-  title = 'currency';
+export class AppComponent implements OnInit, AfterViewInit {
+  constructor(private preloader: PreloaderService) {}
+
+  ngOnInit() {}
+
+  ngAfterViewInit() {
+    this.preloader.hide();
+  }
 }

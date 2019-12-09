@@ -2,7 +2,7 @@ import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@
 
 import { TableAdvancedService } from './advanced.service';
 import { PageEvent } from '@angular/material';
-import { delEmptyKey } from '@shared';
+import { delEmptyKey } from '../../../shared';
 
 @Component({
   selector: 'app-tables-advanced',

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { SharedModule } from '@shared/shared.module';
+import { SharedModule } from '../../shared';
 import { SessionsRoutingModule } from './sessions-routing.module';
 
 import { Error403Component } from './403.component';

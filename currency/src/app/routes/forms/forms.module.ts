@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { SharedModule } from '@shared/shared.module';
+import { SharedModule } from '../../shared/shared.module';
 import { FormsRoutingModule } from './forms-routing.module';
 
 import { FormsElementsComponent } from './elements/elements.component';

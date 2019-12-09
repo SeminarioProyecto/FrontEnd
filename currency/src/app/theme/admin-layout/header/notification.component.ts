@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   template: `
     <button mat-icon-button [matMenuTriggerFor]="menu">
       <mat-icon>notifications</mat-icon>
-      <span class="badge bg-red-500">5</span>
+      <span class="badge bg-red-500">1</span>
     </button>
 
     <mat-menu #menu="matMenu">
@@ -13,7 +13,7 @@ import { Component } from '@angular/core';
         <mat-list-item *ngFor="let message of messages">
           <a matLine href="#">{{ message }}</a>
           <button mat-icon-button>
-            <mat-icon>info</mat-icon>
+            <mat-icon>information</mat-icon>
           </button>
         </mat-list-item>
       </mat-nav-list>
