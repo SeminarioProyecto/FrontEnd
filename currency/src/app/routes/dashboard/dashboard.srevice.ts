@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import {Observable} from 'node_modules/rxjs/'
+//import { Observable } from '../../../../node_modules/';
 
 export interface PeriodicElement {
   name: string;
@@ -75,7 +77,7 @@ export class DashboardService {
           data: [31, 40, 28, 51, 42, 109, 100],
         },
         {
-          name: 'Dollar',
+          name: 'Dolar',
           data: [11, 32, 45, 32, 34, 52, 41],
         },
       ],
@@ -154,6 +156,26 @@ export class DashboardService {
   ];
 
   constructor(private http: HttpClient) {}
+  getCurrency():Observable<any> {
+   /*  console.log(this.http.get('http://localhost:8000/currencyHistory?result=3')); */
+    /* return this.http.get('http://ce1132f2.ngrok.io/currencyHistory/?result:3'); */
+    return this.http.get('http://f8876ed7.ngrok.io/currency/HNL');
+  }
+  getCurrencies():Observable<any> {
+     return this.http.get('http://f8876ed7.ngrok.io/currencies');
+   }
+
+ /*   this.dashboardSrv.getCurrency().subscribe(
+    data => { // Success
+      //this.currencys = data['result'];
+     this.data = data['result'];
+      console.log(data['result']);
+      
+    },
+    (error) => {
+      console.error(error);
+    }
+  ); */
 
   getData() {
     return ELEMENT_DATA;

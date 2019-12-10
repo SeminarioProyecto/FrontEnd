@@ -9,6 +9,8 @@ import {
 } from '@angular/core';
 
 import { DashboardService } from './dashboard.srevice';
+import { json } from '@angular-devkit/core';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
@@ -29,21 +31,61 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
   dataSource = this.dashboardSrv.getData();
 
   messages = this.dashboardSrv.getMessages();
-
+  currencys: any[];
   charts = this.dashboardSrv.getCharts();
   chart1 = null;
   chart2 = null;
-
+  data:any;
+  //prueba = this.dashboardSrv.getCurrency();
+ 
+  
+  /* this.dashboardSrv.getCurrency().subscribe(
+    (data) => { // Success
+      this.currencys = data['result'];
+      console.log(data[2]);
+    },
+    (error) => {
+      console.error(error);
+    }
+  ); */
   constructor(
     private dashboardSrv: DashboardService,
     private ngZone: NgZone,
     private cdr: ChangeDetectorRef
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() { 
+    //JSON.stringify(this.dashboardSrv.getCurrency());
+    //console.log(this.dashboardSrv.getCurrency());
+    this.dashboardSrv.getCurrency().subscribe(
+      data => { // Success
+        //this.currencys = data['result'];
+       this.data = data['result'];
+        console.log(data['result']);
+        
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+
+    this.dashboardSrv.getCurrencies().subscribe(
+      data1 => { // Success
+        //this.currencys = data['result'];
+       this.currencys = data1['result'];
+        console.log(data1['result']);
+        
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+    
+  };
 
   ngAfterViewInit() {
     this.ngZone.runOutsideAngular(() => this.initChart());
+  
   }
 
   ngOnDestroy() {
@@ -60,5 +102,6 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
     this.chart1.render();
     this.chart2 = new ApexCharts(document.querySelector('#chart2'), this.charts[1]);
     this.chart2.render();
+    
   }
 }
