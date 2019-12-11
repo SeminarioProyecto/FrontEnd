@@ -3,14 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import {Observable} from 'node_modules/rxjs/'
 //import { Observable } from '../../../../node_modules/';
 
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
+
 //para controlar como funciona el dashboard de la pagina principal
-const ELEMENT_DATA: PeriodicElement[] = [
+/* const ELEMENT_DATA: PeriodicElement[] = [
   { position: 1, name: 'Dolar', weight: 1.0000, symbol: 'USD' },
   { position: 2, name: 'Euro', weight: 4.0026, symbol: 'EUR' },
   { position: 3, name: 'Lempira', weight: 6.941, symbol: 'HNL' },
@@ -22,43 +17,49 @@ const ELEMENT_DATA: PeriodicElement[] = [
   { position: 9, name: 'Balboa', weight: 18.9984, symbol: 'PAB' },
   { position: 10, name: 'Córdoba', weight: 20.1797, symbol: 'NIO' },
 ];
-
+ */
 const MESSAGES = [
   {
     img: 'assets/images/divisa/honduras.png',
     subject: 'Honduras',
-    content: `Cras sit amet nibh libero, in gravida nulla.
-     Nulla vel metus scelerisque ante sollicitudin commodo.`,
+    content: `Lempira (moneda) El Lempira (código ISO 4217: HNL) 
+    es la unidad monetaria de Honduras desde 1931. Se divide en 100 centavos.`,
   },
   {
     img: 'assets/images/divisa/usa.png',
     subject: 'Estados Unidos',
-    content: `Cras sit amet nibh libero, in gravida nulla.
-     Nulla vel metus scelerisque ante sollicitudin commodo.`,
+    content: `El dólar estadounidense es la moneda oficial de Estados Unidos. Usualmente también
+     se suele asociar el nombre empleado por la divisa con la circulación legal en ese país. `,
   },
   {
     img: 'assets/images/divisa/euro.jpg',
     subject: 'Europa',
-    content: `Cras sit amet nibh libero, in gravida nulla.
-     Nulla vel metus scelerisque ante sollicitudin commodo.`,
+    content: `El nombre de «euro» fue adoptado oficialmente el 16 de diciembre de 1995 en Madrid.
+     ​ El euro se introdujo en los mercados financieros mundiales como una moneda de cuenta
+      el 1 de enero de 1999, reemplazando la antigua Unidad Monetaria Europea `,
   },
   {
-    img: 'assets/images/divisa/japon.jpg',
+    img: 'assets/images/divisa/japon.png',
     subject: 'Japon',
-    content: `Cras sit amet nibh libero, in gravida nulla.
-     Nulla vel metus scelerisque ante sollicitudin commodo.`,
+    content: `El yen (円 símbolo monetario: ¥, ISO: JPY) es la unidad monetaria 
+    utilizada en Japón​ y la tercera moneda más valorada en el mercado de divisas 
+    después del dólar estadounidense y el euro.`,
   },
   {
     img: 'assets/images/divisa/mexico.png',
     subject: 'Mexico',
-    content: `Cras sit amet nibh libero, in gravida nulla.
-     Nulla vel metus scelerisque ante sollicitudin commodo.`,
+    content: `El peso mexicano fue la primera moneda en el mundo en utilizar el signo "$", 
+    incluso antes que el dólar de Estados Unidos, el cual más tarde lo adoptó para su propio uso.`,
   },
 ];
 
+
 @Injectable()
 export class DashboardService {
-  charts = [
+  private urlback = 'http://9f21ecb1.ngrok.io/';
+
+  currencys: any[];
+   charts = [
     {
       chart: {
         height: 350,
@@ -73,7 +74,7 @@ export class DashboardService {
       },
       series: [
         {
-          name: 'Euro',
+          name: '{{currency[2].nombreMoneda}}',
           data: [31, 40, 28, 51, 42, 109, 100],
         },
         {
@@ -159,11 +160,25 @@ export class DashboardService {
   getCurrency():Observable<any> {
    /*  console.log(this.http.get('http://localhost:8000/currencyHistory?result=3')); */
     /* return this.http.get('http://ce1132f2.ngrok.io/currencyHistory/?result:3'); */
-    return this.http.get('http://4d1f03db.ngrok.io/currency/HNL');
+    return this.http.get(this.urlback+'currency/HNL');
   }
   getCurrencies():Observable<any> {
-     return this.http.get('http://4d1f03db.ngrok.io/currencies');
+     return this.http.get(this.urlback+'currencies');
    }
+
+   getCurrencies2(){
+    this.http.get(this.urlback+'currencies').subscribe(
+      data => { // Success
+        //this.currencys = data['result'];
+       this.currencys = data['result'];
+        console.log(data['result']);
+        
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
 
  /*   this.dashboardSrv.getCurrency().subscribe(
     data => { // Success
@@ -178,7 +193,7 @@ export class DashboardService {
   ); */
 
   getData() {
-    return ELEMENT_DATA;
+    //return ELEMENT_DATA;
   }
 
   getMessages() {

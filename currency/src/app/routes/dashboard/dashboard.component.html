@@ -146,13 +146,13 @@
             <tr>
               <th scope="col"> Imagen </th>
               <th scope="col"> Nombre </th>
-              <th scope="col"> Simbolo </th>
+              <th scope="col"> Símbolo </th>
               <th scope="col"> Valor </th>
             </tr>
           </thead>
           <tbody *ngFor='let currency of currencys' >
             <tr>
-              <td > <img matListAvatar [src]="currency.image" alt=""></td>
+              <td > <img src="assets/images/bandera/{{currency.image}}" width="30px" class="img-fluid" alt="{{currency.imagen}}"></td>
               <td > {{currency.nombrePais}} </td>
               <td > {{currency.codigoMoneda}} </td>
               <td > {{currency.rate}} </td>
