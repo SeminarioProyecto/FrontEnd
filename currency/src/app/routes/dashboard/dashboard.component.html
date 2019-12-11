@@ -137,28 +137,32 @@
       </mat-list>
     </mat-card>
     
+    <!-- Aquí se muestra la tabla de valores traidos de la API -->
     <mat-card >
       <mat-card-subtitle>Tabla de valores</mat-card-subtitle>
       <mat-card-content >
-        <table  *ngFor='let currency of currencys' >
-           
-          <ng-container >
-            <th > Imagen </th>
-            <td > <img matListAvatar [src]="currency.image" alt=""></td>
+        <table class="table"> 
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col"> Imagen </th>
+              <th scope="col"> Nombre </th>
+              <th scope="col"> Simbolo </th>
+              <th scope="col"> Valor </th>
+            </tr>
+          </thead>
+          <tbody *ngFor='let currency of currencys' >
+            <tr>
+              <td > <img matListAvatar [src]="currency.image" alt=""></td>
+              <td > {{currency.nombrePais}} </td>
+              <td > {{currency.codigoMoneda}} </td>
+              <td > {{currency.rate}} </td>
+            </tr>
+          </tbody>
+          <!-- <ng-container >
           </ng-container>
           <ng-container >
-            <th > Nombre </th>
-            <td > {{currency.nombrePais}} </td>
           </ng-container>
-          <ng-container >
-            <th > Simbolo </th>
-            <td > {{currency.codigoMoneda}} </td>
-          </ng-container>
-          <ng-container >
-            <th > Valor</th>
-            <td > {{currency.rate}} </td>
-          </ng-container>
-          <!-- <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> -->
   
 </table>

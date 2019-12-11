@@ -43,8 +43,8 @@ const MESSAGES = [
      Nulla vel metus scelerisque ante sollicitudin commodo.`,
   },
   {
-    img: 'assets/images/divisa/china.jpg',
-    subject: 'China',
+    img: 'assets/images/divisa/japon.jpg',
+    subject: 'Japon',
     content: `Cras sit amet nibh libero, in gravida nulla.
      Nulla vel metus scelerisque ante sollicitudin commodo.`,
   },
@@ -110,11 +110,11 @@ export class DashboardService {
       },
       series: [
         {
-          name: 'Crecimiento por semana',
-          data: [20, 100, 40, 30, 50, 80, 33],
+          name: 'Cambio por moneda',
+          data: [20, 100, 40, 30, 50, 80, 33,1],
         },
       ],
-      labels: ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sábado'],
+      labels: ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sábado','hola'],
       plotOptions: {
         radar: {
           size: 140,
@@ -159,10 +159,10 @@ export class DashboardService {
   getCurrency():Observable<any> {
    /*  console.log(this.http.get('http://localhost:8000/currencyHistory?result=3')); */
     /* return this.http.get('http://ce1132f2.ngrok.io/currencyHistory/?result:3'); */
-    return this.http.get('http://f8876ed7.ngrok.io/currency/HNL');
+    return this.http.get('http://4d1f03db.ngrok.io/currency/HNL');
   }
   getCurrencies():Observable<any> {
-     return this.http.get('http://f8876ed7.ngrok.io/currencies');
+     return this.http.get('http://4d1f03db.ngrok.io/currencies');
    }
 
  /*   this.dashboardSrv.getCurrency().subscribe(

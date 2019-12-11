@@ -21,6 +21,45 @@ import { Observable } from 'rxjs';
         margin-right: 8px;
         margin-top: 8px;
       }
+      /* table {
+        width: 100%;
+        border: 1px solid #000;
+     }
+     th, td {
+        width: 25%;
+        text-align: left;
+        vertical-align: top;
+        border: 1px solid #000;
+        border-spacing: 0; */
+        table {
+          width: 100%;
+          border: 1px solid #000;
+       }
+       th, td {
+          width: 25%;
+          text-align: left;
+          vertical-align: top;
+          border: 1px solid #000;
+          border-collapse: collapse;
+          padding: 0.3em;
+          caption-side: bottom;
+       }
+       caption {
+          padding: 0.3em;
+          color: #fff;
+           background: #000;
+       }
+       th {
+          background: #eee;
+       }        
+
+        p{
+          text-align: justifice;
+          font-face: Arial;
+          font-size:15;
+        }
+        
+     }
     `,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,

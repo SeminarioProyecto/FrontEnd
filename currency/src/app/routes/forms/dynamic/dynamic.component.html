@@ -3,17 +3,18 @@
 <mat-card>
   <form [formGroup]="form" (ngSubmit)="submit()">
     <formly-form [form]="form" [fields]="fields" [model]="model">
-        <ng-select [(ngModel)]="selectedCarId" placeholder="seleccione la moneda a convertir">
-          <ng-option *ngFor="let car of cars" [value]="car.id" [disabled]="car.disabled">
-            {{car.name}}</ng-option>
-          <ng-option [value]="'custom'">Custom</ng-option>
+        <ng-select formControlName="monedaOrigen" placeholder="seleccione la moneda a convertir" >
+          <ng-option value="{{currency.codigoMoneda}}" *ngFor="let currency of currencys"  >
+            {{currency.nombreMoneda}}</ng-option>
+          <ng-option [value]="'custom'">Elija una opción</ng-option>
         </ng-select>
-        <ng-select [(ngModel)]="selectedCarId" placeholder="seleccione cambio">
-          <ng-option *ngFor="let car of cars" [value]="car.id" [disabled]="car.disabled">
-            {{car.name}}</ng-option>
-          <ng-option [value]="'custom'">Custom</ng-option>
+        <ng-select formControlName="monedaDestino" placeholder="seleccione cambio" >
+          <ng-option value="{{currency.codigoMoneda}}" *ngFor="let currency of currencys"  >
+            {{currency.nombreMoneda}}</ng-option>
+          <ng-option [value]="'custom'">Elija una opción</ng-option>
         </ng-select>
     </formly-form>
     <button mat-raised-button color="primary">Convertir</button>
   </form>
+  <h1 *ngFor='let cambio of cambios'>{{cambio.symbol}}  {{cambio.resultado}}  </h1>
 </mat-card>
