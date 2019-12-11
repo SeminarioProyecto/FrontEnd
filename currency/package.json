@@ -89,5 +89,15 @@
     "ts-node": "~8.3.0",
     "tslint": "~5.15.0",
     "typescript": "~3.5.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SeminarioProyecto/FrontEnd.git"
+  },
+  "author": "Christopher Fiallos y Eduardo Calix",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SeminarioProyecto/FrontEnd/issues"
+  },
+  "homepage": "https://github.com/SeminarioProyecto/FrontEnd#readme"
 }

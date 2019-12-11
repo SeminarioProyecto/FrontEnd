@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { delay, map } from 'rxjs/operators';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient , HttpHeaders} from '@angular/common/http';
+
 
 export interface Person {
   id: string;
@@ -18,7 +19,7 @@ export interface Person {
 @Injectable()
 export class DataService {
   constructor(private http: HttpClient) {}
-
+  private urlback = 'http://9f21ecb1.ngrok.io/';
   getGithubAccounts(term: string = null) {
     if (term) {
       return this.http
@@ -28,7 +29,18 @@ export class DataService {
       return of([]);
     }
   }
-
+//para llenar los select del formulario
+  getCurrencies():Observable<any> {
+    return this.http.get(this.urlback+'currencies');
+  }
+  //Funcion que realiza la conversion
+  getConversion(params):Observable<any>{
+    //console.log(this.urlback+'conversion/'+params.monedaOrigen +'/'+ params.monedaDestino+'/'+params.cantidad);
+             //Establecemos cabeceras
+         //let headers = new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded');
+    //return this.http.get(this.urlback+'currencies');
+    return this.http.get(this.urlback+'conversion/'+params.monedaOrigen +'/'+ params.monedaDestino+'/'+params.cantidad);
+  }
   getAlbums() {
     return this.http.get<any[]>('https://jsonplaceholder.typicode.com/albums');
   }

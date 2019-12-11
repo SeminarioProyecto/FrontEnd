@@ -20,6 +20,9 @@ export function StartupServiceFactory(startupService: StartupService) {
 
 import { FormlyModule } from '@ngx-formly/core';
 import { ToastrModule } from 'ngx-toastr';
+
+//nuevo servicio
+import { HistoryService } from './history.service';
 @NgModule({
   declarations: [
     AppComponent

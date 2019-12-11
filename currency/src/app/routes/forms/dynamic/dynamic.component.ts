@@ -1,45 +1,30 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormBuilder,FormGroup } from '@angular/forms';
 import { FormlyFieldConfig } from '@ngx-formly/core';
+import { DataService } from '../data.service';
 
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-forms-dynamic',
   templateUrl: './dynamic.component.html',
+  providers: [DataService],
 })
 export class FormsDynamicComponent implements OnInit {
   form = new FormGroup({});
-  model = { Convercion: '1 USD = 0.709801 EUR' };
+  currencys: any[];
+  cambios: any[];
+  model = { Conversion: this.form.value};
   fields: FormlyFieldConfig[] = [
     {
-      key: 'text',
+      key: 'cantidad',
       type: 'input',
       templateOptions: {
         label: 'Cambio',
         placeholder: 'Ingrese la cantidad que desea convertir',
       },
-    },
-   /*  {
-      key: 'text2',
-      type: 'select',
-      templateOptions: {
-        label: 'Elija moneda de cambio',
-        placeholder: 'This one is disabled if there is no text in the other input',
-      },
-      expressionProperties: {
-        'templateOptions.disabled': '!model.text',
-      },
-    },
-    {
-      key: 'email',
-      type: 'input',
-      templateOptions: {
-        label: 'Email address',
-        placeholder: 'Enter email',
-        required: true,
-      },
-    }, */
+    }
+
   ];
 //aquí van los valores de la api
   selectedCarId = 3;
@@ -55,15 +40,59 @@ export class FormsDynamicComponent implements OnInit {
     { id: 9, name: 'PAB' },
     { id: 10, name: 'NIO' },
   ];
-  constructor(private toastr: ToastrService) {}
+  constructor(
+    private toastr: ToastrService,
+    private cambioDivisa: DataService,public fb:FormBuilder) {
+      this.form = this.fb.group({
+        cantidad: [],
+        monedaOrigen: [''],
+        monedaDestino: ['']
+      })
+    }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.cambioDivisa.getCurrencies().subscribe(
+      data1 => { // Success
+        //this.currencys = data['result'];
+       this.currencys = data1['result'];
+        console.log(data1['result']);
+        
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
 
   submit() {
-    this.showToast();
+  /*   var formData: any = new FormData();
+    formData.append("cantidad", this.form.get('cantidad').value);
+    formData.append("monedaOrigen", this.form.get('monedaOrigen').value);
+    formData.append("monedaDestino", this.form.get('monedaDestino').value);
+    let json = JSON.stringify(this.form.value);
+    let params = "json="+json;
+    console.log(this.form.get('cantidad').value); */
+    //console.log(params);
+    //console.log(json);
+   this.cambioDivisa.getConversion(this.form.value).subscribe(
+      data2 => { // Success
+        //this.currencys = data['result'];
+       this.cambios = data2['result'];
+        console.log();
+      this.toastr.success(JSON.stringify(data2['result']));
+        
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+    /* console.log(this.cambio);
+    console.log(this.form.value) */
+    //this.showToast();
+
   }
 
   showToast() {
-    this.toastr.success(JSON.stringify(this.model));
+    //this.toastr.success(JSON.stringify());
   }
 }
