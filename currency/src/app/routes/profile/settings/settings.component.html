@@ -16,32 +16,24 @@
         <div fxFlex="50" fxFlex.lt-md="100">
           <mat-form-field>
             <mat-label>Correo Electronico</mat-label>
-            <input matInput placeholder="Simple placeholder" formControlName="email" required>
-            <mat-error *ngIf="reactiveForm.get('email').invalid">
-              {{getErrorMessage(reactiveForm)}}</mat-error>
+            <input matInput placeholder="Simple placeholder" formControlName="email">
           </mat-form-field>
         </div>
 
         <div fxFlex="50" fxFlex.lt-md="100">
           <mat-form-field>
-            <mat-label>Genero</mat-label>
-            <mat-select required formControlName="gender" required>
-              <mat-option>-- Ninguno --</mat-option>
-              <mat-option value="1">Masculino</mat-option>
-              <mat-option value="2">Femenino</mat-option>
-            </mat-select>
-            <mat-error *ngIf="reactiveForm.get('gender').invalid">Por favor seleccine un genero</mat-error>
+            <mat-label>Cambiar contraseña</mat-label>
+            <input matInput placeholder="Simple placeholder" formControlName="password" type="password">
+          </mat-form-field>
+        </div>
+
+        <div fxFlex="50" fxFlex.lt-md="100">
+          <mat-form-field>
+            <mat-label>Confirmar contraseña</mat-label>
+            <input matInput placeholder="Simple placeholder" formControlName="password" type="password">
           </mat-form-field>
         </div>
 <!-- 
-        <div fxFlex="50" fxFlex.lt-md="100">
-          <mat-form-field>
-            <mat-label>City</mat-label>
-            <input matInput placeholder="Simple placeholder" formControlName="city" required>
-            <mat-error *ngIf="reactiveForm.get('city').invalid">Please enter city</mat-error>
-          </mat-form-field>
-        </div>
-
         <div fxFlex="50" fxFlex.lt-md="100">
           <mat-form-field>
             <mat-label>Address</mat-label>
