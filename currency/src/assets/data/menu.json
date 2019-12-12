@@ -15,12 +15,7 @@
       "type": "sub",
       "icon": "person",
       "children": [
-        {
-          "state": "overview",
-          "name": "Generalidades",
-          "type": "link"
-        },
-        {
+          {
           "state": "settings",
           "name": "Configuración",
           "type": "link"

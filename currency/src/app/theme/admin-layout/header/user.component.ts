@@ -6,11 +6,11 @@ import { Component } from '@angular/core';
     <a mat-button href="javascript:void(0)" [matMenuTriggerFor]="menu">
       <img
         class="matero-user-avatar r-full align-middle"
-        src="assets/images/avatar1.jpg"
+        src="assets/images/avatar.jpg"
         width="24"
         alt="avatar"
       />
-      <span class="align-middle">Eduardo Calix</span>
+      <span class="align-middle">Pedro Picapiedra</span>
     </a>
 
     <mat-menu #menu="matMenu">
