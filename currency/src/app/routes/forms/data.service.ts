@@ -19,7 +19,7 @@ export interface Person {
 @Injectable()
 export class DataService {
   constructor(private http: HttpClient) {}
-  private urlback = 'http://9f21ecb1.ngrok.io/';
+  private urlback = 'http://ab83eaee.ngrok.io/';
   getGithubAccounts(term: string = null) {
     if (term) {
       return this.http
@@ -32,6 +32,9 @@ export class DataService {
 //para llenar los select del formulario
   getCurrencies():Observable<any> {
     return this.http.get(this.urlback+'currencies');
+  }
+  getTableCurrencies():Observable<any> {
+    return this.http.get(this.urlback+'tableConversions');
   }
   //Funcion que realiza la conversion
   getConversion(params):Observable<any>{

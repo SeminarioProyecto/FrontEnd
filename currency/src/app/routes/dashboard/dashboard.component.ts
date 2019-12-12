@@ -21,7 +21,7 @@ import { Observable } from 'rxjs';
         margin-right: 8px;
         margin-top: 8px;
       }
-      /* table {
+      table {
         width: 100%;
         border: 1px solid #000;
      }
@@ -30,8 +30,8 @@ import { Observable } from 'rxjs';
         text-align: left;
         vertical-align: top;
         border: 1px solid #000;
-        border-spacing: 0; */
-        table {
+        border-spacing: 0; 
+      table {
           width: 100%;
           border: 1px solid #000;
        }
@@ -71,10 +71,12 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
 
   messages = this.dashboardSrv.getMessages();
   currencys: any[];
+  tabls: any[];
   charts = this.dashboardSrv.getCharts();
   chart1 = null;
-  chart2 = null;
+  //chart2 = null;
   data:any;
+  data3:any;
   //prueba = this.dashboardSrv.getCurrency();
  
   
@@ -96,6 +98,18 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnInit() { 
     //JSON.stringify(this.dashboardSrv.getCurrency());
     //console.log(this.dashboardSrv.getCurrency());
+    this.dashboardSrv.getUpdateCurrency();
+    this.dashboardSrv.getHistoryCurrency();
+    this.dashboardSrv.getTableCurrencies().subscribe(
+      data3 => { // Success
+       this.tabls = data3['resultado'];
+        console.log(data3['resultado']);
+        
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
     this.dashboardSrv.getCurrency().subscribe(
       data => { // Success
         //this.currencys = data['result'];
@@ -113,12 +127,13 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
         //this.currencys = data['result'];
        this.currencys = data1['result'];
         console.log(data1['result']);
-        
       },
       (error) => {
         console.error(error);
       }
     );
+
+    
     
   };
 
@@ -131,16 +146,16 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
     if (this.chart1) {
       this.chart1.destroy();
     }
-    if (this.chart2) {
+    /* if (this.chart2) {
       this.chart2.destroy();
-    }
+    } */
   }
 
   initChart() {
     this.chart1 = new ApexCharts(document.querySelector('#chart1'), this.charts[0]);
     this.chart1.render();
-    this.chart2 = new ApexCharts(document.querySelector('#chart2'), this.charts[1]);
-    this.chart2.render();
+   /*  this.chart2 = new ApexCharts(document.querySelector('#chart2'), this.charts[1]);
+    this.chart2.render(); */
     
   }
 }

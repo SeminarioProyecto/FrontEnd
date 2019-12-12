@@ -49,15 +49,54 @@
   <div class="matero-col" fxFlex="100" fxFlex.gt-sm="60">
     <mat-card>
       <mat-card-subtitle>Estadisticas de divisas</mat-card-subtitle>
-      <div id="chart1"></div>
+      <div id="chart1" ></div>
     </mat-card>
   </div>
-  <div class="matero-col" fxFlex="100" fxFlex.gt-sm="40">
+  <!--<div class="matero-col" fxFlex="100" fxFlex.gt-sm="40" id="globalLoader">
     <mat-card>
       <mat-card-subtitle>Cambio diario</mat-card-subtitle>
-      <div id="chart2"></div>
+       <table > 
+        <thead >
+          <!-<tr>
+            
+          </tr> --
+          <tr >
+            <!- <th scope="col"> valores </th>  -->
+            <!-- <th scope="col" *ngFor='let currency of currencys'><img src="assets/images/bandera/{{currency.image}}" width="20px" class="img-fluid" alt="{{currency.imagen}}">  {{currency.codigoMoneda}} </th> -->
+            <!-- <th scope="col"> Símbolo </th>
+            <th scope="col"> Valor </th> --
+          </tr>
+        </thead>
+        <tbody *ngFor='let tabl of tabls' >
+           <tr *ngIf='tabl'>
+            <!- <td *ngFor='let currency of currencys' > <img src="assets/images/bandera/{{currency.image}}" width="30px" class="img-fluid" alt="{{currency.imagen}}">  {{currency.codigoMoneda}}</td> -->
+            <!-- <td *ngFor='let tabl of tabls'> {{tabl.HNL}} </td> -->
+            <!-- <!-<td > {{currency.nombrePais}} </td>
+            <td > {{currency.codigoMoneda}} </td>
+            <td > {{currency.rate}} </td>  --
+            <td > {{tabl.HNL}} </td>
+            <td > {{tabl.EUR}} </td>
+            <td > {{tabl.JPY}} </td>
+            <td > {{tabl.CRC}} </td>
+            <td > {{tabl.NIO}} </td>
+            <td > {{tabl.PAB}} </td>
+            <td > {{tabl.USD}} </td>
+            <td > {{tabl.SVC}} </td>
+            <td > {{tabl.MXN}} </td>
+            <td > {{tabl.GTQ}} </td>
+          </tr>
+        </tbody>
+        <!- <ng-container >
+        </ng-container>
+        <ng-container >
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> --
+
+      </table> 
+      
     </mat-card>
-  </div>
+  </div>-->
 
   <!-- Others -->
   <div class="matero-col" fxFlex.gt-sm="50" fxFlex="100">

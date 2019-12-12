@@ -1,23 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Observable} from 'node_modules/rxjs/'
-//import { Observable } from '../../../../node_modules/';
+import { parse } from 'querystring';
+import { parseSelectorToR3Selector } from '@angular/compiler/src/core';
 
-
-//para controlar como funciona el dashboard de la pagina principal
-/* const ELEMENT_DATA: PeriodicElement[] = [
-  { position: 1, name: 'Dolar', weight: 1.0000, symbol: 'USD' },
-  { position: 2, name: 'Euro', weight: 4.0026, symbol: 'EUR' },
-  { position: 3, name: 'Lempira', weight: 6.941, symbol: 'HNL' },
-  { position: 4, name: 'Peso', weight: 9.0122, symbol: 'MXN' },
-  { position: 5, name: 'Yen', weight: 10.811, symbol: 'JPY' },
-  { position: 6, name: 'Colón', weight: 12.0107, symbol: 'SVC' },
-  { position: 7, name: 'Quetzal', weight: 14.0067, symbol: 'QTR' },
-  { position: 8, name: 'Colón', weight: 15.9994, symbol: 'CRC' },
-  { position: 9, name: 'Balboa', weight: 18.9984, symbol: 'PAB' },
-  { position: 10, name: 'Córdoba', weight: 20.1797, symbol: 'NIO' },
-];
- */
 const MESSAGES = [
   {
     img: 'assets/images/divisa/honduras.png',
@@ -56,9 +42,68 @@ const MESSAGES = [
 
 @Injectable()
 export class DashboardService {
-  private urlback = 'http://9f21ecb1.ngrok.io/';
+  private urlback = 'http://ab83eaee.ngrok.io/';
+  public moneda1:string='Euro';
+  public moneda3:string='Lempira';
+  public moneda2:string='Dolar';
 
-  currencys: any[];
+  graficos  = this.getCurrencies2().subscribe(
+    data => { // Success
+      //this.currencys = data['result'];
+     this.currencys = data['result'];
+      
+      this.moneda1=this.currencys[1].nombreMoneda.toString();
+      this.moneda2=this.currencys[6].nombreMoneda.toString();
+      this.moneda3=this.currencys[0].nombreMoneda.toString();
+
+      console.log(this.moneda1);
+      console.log(this.moneda2);
+      console.log(this.moneda3);
+
+      //return this.currencys[4].nombreMoneda;
+    },
+    (error) => {
+      console.error(error);
+    }
+  );
+  constructor(private http: HttpClient) {}
+  getCurrency():Observable<any> {
+   /*  console.log(this.http.get('http://localhost:8000/currencyHistory?result=3')); */
+    /* return this.http.get('http://ce1132f2.ngrok.io/currencyHistory/?result:3'); */
+    return this.http.get(this.urlback+'currency/HNL');
+  }
+  getCurrencies():Observable<any> {
+     return this.http.get(this.urlback+'currencies');
+   }
+
+   getTableCurrencies():Observable<any> {
+    return this.http.get(this.urlback+'tableConversions');
+  }
+
+   getCurrencies2(){
+     
+   return this.http.get(this.urlback+'currencies');
+
+  }
+  getUpdateCurrency(){
+    return this.http.get(this.urlback+'updateCurrencies');
+  }
+  getHistoryCurrency(){
+    return this.http.get(this.urlback+'newHistoric');
+  }
+
+  getData() {
+    //return ELEMENT_DATA;
+  }
+
+  getMessages() {
+    return MESSAGES;
+  }
+
+  getCharts() {
+    return this.charts;
+  }
+  public currencys: any[];
    charts = [
     {
       chart: {
@@ -74,24 +119,28 @@ export class DashboardService {
       },
       series: [
         {
-          name: '{{currency[2].nombreMoneda}}',
-          data: [31, 40, 28, 51, 42, 109, 100],
+          
+          name: this.moneda1,
+          data: [1, 1, 1, 1, 1, 1, 1],
         },
         {
-          name: 'Dolar',
-          data: [11, 32, 45, 32, 34, 52, 41],
+          name: this.moneda2,
+          data: [1.10587, 1.10675, 1.109261, 1.10832, 1.106272, 1.105297, 1.109863],
+        },{
+          name: this.moneda3,
+          data: [27.53080, 27.55271, 27.29599, 27.49579, 27.39891, 27.76526, 27.29599],
         },
       ],
       xaxis: {
         type: 'datetime',
         categories: [
-          '2019-11-24T00:00:00',
-          '2019-11-24T01:30:00',
-          '2019-11-24T02:30:00',
-          '2019-11-24T03:30:00',
-          '2019-11-24T04:30:00',
-          '2019-11-24T05:30:00',
-          '2019-11-24T06:30:00',
+          '2019-12-05T00:00:00',
+          '2019-12-06T04:30:00',
+          '2019-12-07T05:30:00',
+          '2019-12-08T04:30:00',
+          '2019-12-09T01:30:00',
+          '2019-12-11T02:30:00',
+          '2019-12-12T03:30:00',
         ],
       },
       tooltip: {
@@ -156,51 +205,5 @@ export class DashboardService {
     },
   ];
 
-  constructor(private http: HttpClient) {}
-  getCurrency():Observable<any> {
-   /*  console.log(this.http.get('http://localhost:8000/currencyHistory?result=3')); */
-    /* return this.http.get('http://ce1132f2.ngrok.io/currencyHistory/?result:3'); */
-    return this.http.get(this.urlback+'currency/HNL');
-  }
-  getCurrencies():Observable<any> {
-     return this.http.get(this.urlback+'currencies');
-   }
-
-   getCurrencies2(){
-    this.http.get(this.urlback+'currencies').subscribe(
-      data => { // Success
-        //this.currencys = data['result'];
-       this.currencys = data['result'];
-        console.log(data['result']);
-        
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
-  }
-
- /*   this.dashboardSrv.getCurrency().subscribe(
-    data => { // Success
-      //this.currencys = data['result'];
-     this.data = data['result'];
-      console.log(data['result']);
-      
-    },
-    (error) => {
-      console.error(error);
-    }
-  ); */
-
-  getData() {
-    //return ELEMENT_DATA;
-  }
-
-  getMessages() {
-    return MESSAGES;
-  }
-
-  getCharts() {
-    return this.charts;
-  }
+ 
 }
