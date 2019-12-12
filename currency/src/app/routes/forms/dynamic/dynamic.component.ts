@@ -8,11 +8,43 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-forms-dynamic',
   templateUrl: './dynamic.component.html',
+  styles:[`table {
+    width: 100%;
+    border: 1px solid #000;
+ }
+ th, td {
+    width: 25%;
+    text-align: left;
+    vertical-align: top;
+    border: 1px solid #000;
+    border-spacing: 0; 
+  table {
+      width: 100%;
+      border: 1px solid #000;
+   }
+   th, td {
+      width: 25%;
+      text-align: left;
+      vertical-align: top;
+      border: 1px solid #000;
+      border-collapse: collapse;
+      padding: 0.3em;
+      caption-side: bottom;
+   }
+   caption {
+      padding: 0.3em;
+      color: #fff;
+       background: #000;
+   }
+   th {
+      background: #eee;
+   }   `],
   providers: [DataService],
 })
 export class FormsDynamicComponent implements OnInit {
   form = new FormGroup({});
   currencys: any[];
+  tabls:any[];
   cambios: any[];
   model = { Conversion: this.form.value};
   fields: FormlyFieldConfig[] = [
@@ -51,6 +83,16 @@ export class FormsDynamicComponent implements OnInit {
     }
 
   ngOnInit() {
+    this.cambioDivisa.getTableCurrencies().subscribe(
+      data3 => { // Success
+       this.tabls = data3['resultado'];
+        console.log(data3['resultado']);
+        
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
     this.cambioDivisa.getCurrencies().subscribe(
       data1 => { // Success
         //this.currencys = data['result'];
