@@ -4,9 +4,9 @@
     <mat-card-content>
       <form class="matero-form-horizontal" [formGroup]="reactiveForm">
         <mat-form-field appearance="outline">
-          <mat-label>Nombre de usuario</mat-label>
-          <input matInput placeholder="Pedro Picapiedra" formControlName="username" required>
-          <mat-error *ngIf="reactiveForm.get('username').invalid">Por favor ingrese el nombre de usuario</mat-error>
+          <mat-label>Correo electrónico</mat-label>
+          <input matInput placeholder="zoro@gmail.com"  formControlName="email" required>
+          <mat-error *ngIf="reactiveForm.get('email').invalid">Por favor su correo electrónico</mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="outline">

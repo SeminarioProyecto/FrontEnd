@@ -4,7 +4,14 @@
       <div>Bienvenido </div>Solo toma unos segundos crear una cuenta
     </mat-card-title>
     <mat-card-content>
+      <form [formGroup]="form" (ngSubmit)="ngSubmit()"></form>
       <form class="matero-form-horizontal" [formGroup]="reactiveForm">
+        <mat-form-field appearance="outline">
+          <mat-label>Correo electrónico</mat-label>
+          <input matInput placeholder="Pedro Picapiedra" formControlName="email" required>
+          <mat-error *ngIf="reactiveForm.get('email').invalid">Por favor ingrese su correo electrónico</mat-error>
+        </mat-form-field>
+
         <mat-form-field appearance="outline">
           <mat-label>Nombre de usuario</mat-label>
           <input matInput placeholder="Pedro Picapiedra" formControlName="username" required>
@@ -24,15 +31,15 @@
                  formControlName="confirmPassword" required>
           <mat-error *ngIf="reactiveForm.get('confirmPassword').hasError('required')">Por favor confirme contraseña!
           </mat-error>
-          <mat-error *ngIf="reactiveForm.get('confirmPassword').hasError('confirm')">Contraseña no es igual!
-          </mat-error>
+          <!-- <mat-error *ngIf="reactiveForm.get('confirmPassword').hasError('confirm')">Contraseña no es igual! -->
+          <!-- </mat-error> -->
         </mat-form-field>
 
         <div class="m-y-16" fxLayout="row" fxLayoutAlign="space-between center">
           <mat-checkbox>Leí y acepto los terminos y servicios.</mat-checkbox>
         </div>
 
-        <button class="w-full" mat-raised-button color="primary">Guardar</button>
+        <button class="w-full" mat-raised-button color="primary" (click)="register()">Guardar</button>
         <br>
 
         <div class="text-center">Ya tienes una cuenta? <br><a routerLink="/auth/login">Iniciar Sesión</a></div>
