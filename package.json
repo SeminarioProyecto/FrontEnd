@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "heroku-postbuild": "ng build --prod"
+    "postinstall": "ng build --output-path angularapp  --aot --prod"
   },
   "private": true,
   "dependencies": {
@@ -91,7 +91,7 @@
     "url": "git+https://github.com/SeminarioProyecto/FrontEnd.git"
   },
   "engines": {
-    "node": "6.11.0",
+    "node": "13.3.0",
     "npm": "3.10.10"
   },
   "author": "Christopher Fiallos y Eduardo Calix",
