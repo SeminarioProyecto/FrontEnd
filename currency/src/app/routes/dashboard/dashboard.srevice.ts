@@ -42,7 +42,7 @@ const MESSAGES = [
 
 @Injectable()
 export class DashboardService {
-  private urlback = 'http://ab83eaee.ngrok.io/';
+  private urlback = 'https://currencyapiseminario.herokuapp.com/';
   public moneda1:string='Euro';
   public moneda3:string='Lempira';
   public moneda2:string='Dolar';

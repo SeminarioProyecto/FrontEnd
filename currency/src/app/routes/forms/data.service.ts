@@ -19,7 +19,7 @@ export interface Person {
 @Injectable()
 export class DataService {
   constructor(private http: HttpClient) {}
-  private urlback = 'http://ab83eaee.ngrok.io/';
+  private urlback = 'https://currencyapiseminario.herokuapp.com/';
   getGithubAccounts(term: string = null) {
     if (term) {
       return this.http
