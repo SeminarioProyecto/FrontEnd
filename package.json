@@ -2,8 +2,9 @@
   "name": "currency",
   "version": "1.0.0",
   "scripts": {
+    "preinstall": "npm i -g http-server && npm i -g @angular/cli",
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve -o",
     "build": "ng build",
     "test": "ng test",
     "build:prod": "ng build --prod --build-optimizer",
