@@ -17,7 +17,8 @@
     "predeploy": "npm run build:release",
     "deploy": "npm run deploy:ghpages",
     "deploy:ghpages": "angular-cli-ghpages --no-silent --dir=dist/ng-matero",
-    "publish": "cd dist/schematics && npm publish"
+    "publish": "cd dist/schematics && npm publish",
+    "postinstall": "ng build --aot -prod"
   },
   "private": true,
   "dependencies": {
